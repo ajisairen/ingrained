@@ -7,7 +7,7 @@ class MarketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Marketplace!")),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.green[100],
       body: SafeArea(
         child: Column(
           children: [

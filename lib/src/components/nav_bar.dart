@@ -9,24 +9,32 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int pageIndex = 1;
-
-  final List<Widget> pages = [
-    const MarketPage(),
-    const ForumPage(),
-    const ProfilePage(),
-  ];
+  int pageIndex = 0;
+  final PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[pageIndex],
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
+        children: const [
+          MarketPage(),
+          ForumPage(),
+          ProfilePage(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: pageIndex,
         onTap: (index) {
           setState(() {
             pageIndex = index;
           });
+          pageController.jumpToPage(index);
         },
         items: const [
           BottomNavigationBarItem(

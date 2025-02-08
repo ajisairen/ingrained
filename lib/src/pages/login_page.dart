@@ -7,7 +7,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Login!")),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
             Center(
               child: Text("LoginPage."))],
         )
-      )
+      ),
     );
   }
 }

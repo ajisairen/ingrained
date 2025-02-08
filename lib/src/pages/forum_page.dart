@@ -6,8 +6,8 @@ class ForumPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green[100],
       appBar: AppBar(title: Text("ForumPage")),
-      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Column(
           children: [
