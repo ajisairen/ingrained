@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'src/components/nav_bar.dart';
 import 'src/pages/forum_page.dart';
 import 'src/pages/profile_page.dart';
