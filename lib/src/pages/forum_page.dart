@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/post.dart';
-import '../pages/post_detail_page.dart';
+// import '../pages/post_detail_page.dart';
 
 class ForumPage extends StatefulWidget {
   const ForumPage({super.key});
