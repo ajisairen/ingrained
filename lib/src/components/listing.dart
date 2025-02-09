@@ -114,7 +114,7 @@ class ListingWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10.0), // Rounded corners
                 child: Image.asset(
-                  listing.getPic(),
+                  "assets/images/plant.jpg", 
                   width:
                       double.infinity, // Make the image as wide as the widget
                   height: 150, // Fixed height of the image
