@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/post.dart';
 import '../pages/post_detail_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../services/post_service.dart';
 
 class ForumPage extends StatefulWidget {
   const ForumPage({super.key});
@@ -10,24 +12,7 @@ class ForumPage extends StatefulWidget {
 }
 
 class _ForumPageState extends State<ForumPage> {
-  List<Post> posts = List.generate(
-    1,
-    (index) => Post(
-      title: "Sample Post AAAAAAAAAAAAAAAA",
-      text:
-          "This is a description of the sample post. I AM GOING OT OSDRaaAAAAAAAAAAAREMEEAANANNNDH UDHU WDAHDU AH UWAH DUHUWH AUHUWAHU WHDUAH UAHUAWH UWAH WUAH AWUHAWU HWAUHWAU HWU HAWU HWAU AWHUAWH AUWH AWU HAWU AHW UAWH AUWH AWU HAWU AHWU AH ",
-      date: DateTime.now(),
-      likes: 0,
-      img: Image.asset("assets/images/plant.jpg"),
-      removed: false,
-    ),
-  );
-
-  void addPost(Post post) {
-    setState(() {
-      posts.add(post);
-    });
-  }
+  final PostService postService = PostService();
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +20,48 @@ class _ForumPageState extends State<ForumPage> {
       backgroundColor: Colors.green[100],
       appBar: AppBar(title: Text("ForumPage")),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: (context, index) {
-            return PostWidget(post: posts[index]);
+        child: FutureBuilder<QuerySnapshot>(
+          future: postService.fetchPosts(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            }
+            if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            }
+            if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+              return Center(child: Text('No posts available'));
+            }
+            List<Post> posts = snapshot.data!.docs.map((doc) {
+              return Post(
+                title: doc['title'],
+                text: doc['text'],
+                date: (doc['date'] as Timestamp).toDate(),
+                likes: doc['likes'],
+                imgUrl: Image.network(doc['imgUrl']),
+                removed: doc['removed'],
+              );
+            }).toList();
+            return ListView.builder(
+              itemCount: posts.length,
+              itemBuilder: (context, index) {
+                return PostWidget(post: posts[index]);
+              },
+            );
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Example of adding a new post
-          addPost(Post(
-            title: "New Post",
+          postService.addPost(Post(
+            title: "TEST POST239874298432U Post",
             text: "This is a new post.",
-            img: Image.asset("assets/images/plant.jpg"),
+            imgUrl: Image.asset("assets/images/plant.jpg"),
             date: DateTime.now(),
             likes: 0,
-            removed: false,
-          ));
+            removed: false,)
+          );
         },
         child: Icon(Icons.add),
       ),

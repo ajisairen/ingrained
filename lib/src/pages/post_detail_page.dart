@@ -36,7 +36,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(image: widget.post.img.image),
+            Image(image: AssetImage("assets/images/plant.jpg")),
             SizedBox(height: 10),
             Text(widget.post.title,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),

@@ -6,7 +6,7 @@ class Post {
   String title;
   int id;
   String text;
-  Image img;
+  Image imgUrl;
   // Profile profile;
   DateTime date;
   int likes;
@@ -16,7 +16,7 @@ class Post {
     this.title = "",
     this.id = 0,
     this.text = "",
-    required this.img,
+    required this.imgUrl,
     // required this.profile,
     required this.date,
     this.likes = 0,
@@ -26,7 +26,7 @@ class Post {
   String getTitle() => title;
   int getId() => id;
   String getText() => text;
-  Image getImage() => img;
+  Image getImage() => imgUrl;
   // Profile getProfile() => profile;
   DateTime getDate() => date;
   int getLikes() => likes;
@@ -44,8 +44,8 @@ class Post {
     this.text = text;
   }
 
-  void setImg(Image img) {
-    this.img = img;
+  void setimgUrl(Image imgUrl) {
+    this.imgUrl = imgUrl;
   }
 
   // void setProfile(Profile profile) {
@@ -93,7 +93,8 @@ class PostWidget extends StatelessWidget {
                 height: 100, // Fixed height for the thumbnail
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0), // Rounded corners
-                  child: Image(image: post.img.image, fit: BoxFit.cover),
+                  // child: Image(image: post.imgUrl.image, fit: BoxFit.cover),
+                  child: Image(image: AssetImage("assets/images/plant.jpg"), fit: BoxFit.cover),
                 ),
               ),
               SizedBox(width: 10), // Add padding between the image and the text
