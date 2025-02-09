@@ -1,27 +1,55 @@
 import 'package:flutter/material.dart';
 import '../components/profile_listings.dart';
+import '../components/profile_posts.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+  @override
+  ProfilePageState createState() => ProfilePageState();
+}
 
+class ProfilePageState extends State<ProfilePage> {
   static const textColor = Color(0xff124642);
   static const buttonSize = 32.0;
 
+  static const username = 'GoldGiratina';
+  static const avatar = 'assets/images/test.png';
+  static const rating = '4.98';
   static const ownPage = true;
+
+  bool showListings = true;
+
+  void changeToListings() {
+    setState(() {
+      showListings = true;
+    });
+  }
+
+  void changeToPosts() {
+    setState(() {
+      showListings = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    bool listingsSelected = true;
+    double padding = width / 5;
+
+    String appBarText;
     Widget avatarArea;
 
+    // Adjust profile if own
     if (ownPage) {
+      appBarText = 'Your Profile';
       // Avatar, follow, and message buttons
       avatarArea = CircleAvatar(
         radius: 79,
-        backgroundImage: AssetImage('assets/images/flutter_logo.png')
+        backgroundImage: AssetImage(avatar)
       );
+    // Adjust profile if not own
     } else {
+      appBarText = "$username's Profile";
       // Avatar, follow, and message buttons
       avatarArea = Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +79,7 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text('Your Profile')),
+      appBar: AppBar(title: Text(appBarText)),
       backgroundColor: Color(0xffeeeed2),
       body: SingleChildScrollView(
         child: Column(
@@ -61,7 +89,7 @@ class ProfilePage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(22),
                 child: Text(
-                  'GoldGiratina',
+                  username,
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -78,7 +106,7 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '4.98',
+                    rating,
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor
@@ -98,24 +126,23 @@ class ProfilePage extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.store),
                   iconSize: buttonSize,
-                  padding: EdgeInsets.only(left: width / 5, right: width / 5),
+                  padding: EdgeInsets.only(left: padding, right: padding),
                   onPressed: () {
-                    listingsSelected = true;
-                  },
-                  isSelected: listingsSelected
+                    changeToListings();
+                  }
                 ),
                 IconButton(
                   icon: Icon(Icons.forum),
                   iconSize: buttonSize,
-                  padding: EdgeInsets.only(left: width / 5, right: width / 5),
+                  padding: EdgeInsets.only(left: padding, right: padding),
                   onPressed: () {
-                    listingsSelected = false;
-                  },
-                  isSelected: !listingsSelected,
+                    changeToPosts();
+                  }
                 )
               ]
             ),
-            ProfileListings()
+            // Adjust area to show listings or forum posts
+            showListings ? ProfileListings() : ProfilePosts()
           ]
         )
       )

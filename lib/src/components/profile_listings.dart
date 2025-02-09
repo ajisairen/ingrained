@@ -7,7 +7,7 @@ class ProfileListings extends StatelessWidget {
     double imgWidth = width * 0.3;
 
     List<Widget> listings = [];
-    for (var i = 0; i < 999; i++) {
+    for (var i = 0; i < 15; i++) {
       listings.add(
         SizedBox(
           width: imgWidth,
