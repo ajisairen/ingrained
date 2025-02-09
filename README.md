@@ -1,8 +1,15 @@
 # Ingrained
-A community app for local growers. \
+An android community app for local growers. \
+\
 Download Link: [here]
 
-## Our Idea
+## Team Members
+- Corina Conklin - https://www.corinanc.site/
+- Serena Xin - https://ajisairen.github.io/
+- Manan Chaturvedi - chatu035@umn.edu
+- Bradley Johnson - https://bradleyjhnsn.github.io/
+
+## Inspiration
 We decided to make a mobile application to foster local communities that grow and take care of plants. Inspired by the local farmers' market scene in and around Minneapolis, we thought connecting people through a shared interest of plants would create a strong community that can build each other up and share experiences.
 
 ## Features
