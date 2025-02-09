@@ -47,7 +47,7 @@ class _NavBarState extends State<NavBar> {
                 case 2:
                   return ProfilePage();
                 default:
-                  return BuySellPage();
+                  return MarketPage();
               }
             },
           );
