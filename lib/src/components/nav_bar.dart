@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/forum_page.dart';
 import '../pages/profile_page.dart';
-import '../pages/marketplace_page.dart';
+// import '../pages/marketplace_page.dart';
 import '../pages/buy_sell_page.dart';
 
 class NavBar extends StatefulWidget {
