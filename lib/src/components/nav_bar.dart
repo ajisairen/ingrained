@@ -5,6 +5,8 @@ import '../pages/profile_page.dart';
 import '../pages/buy_sell_page.dart';
 
 class NavBar extends StatefulWidget {
+  const NavBar({super.key});
+
   @override
   _NavBarState createState() => _NavBarState();
 }
