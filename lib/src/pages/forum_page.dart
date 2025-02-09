@@ -6,16 +6,14 @@ class ForumPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[100],
-      appBar: AppBar(title: Text("ForumPage")),
-      body: SafeArea(
-        child: Column(
+        backgroundColor: Colors.green[100],
+        appBar: AppBar(title: Text("ForumPage")),
+        body: SafeArea(
+            child: Column(
           children: [
             const SizedBox(height: 50),
-            Center(
-              child: Text("ForumPage."))],
-        )
-      )
-    );
+            Center(child: Text("ForumPage."))
+          ],
+        )));
   }
 }

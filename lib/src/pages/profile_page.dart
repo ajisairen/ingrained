@@ -6,16 +6,14 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("ProfilePage!")),
-      backgroundColor: Colors.green[100],
-      body: SafeArea(
-        child: Column(
+        appBar: AppBar(title: Text("ProfilePage!")),
+        backgroundColor: Colors.green[100],
+        body: SafeArea(
+            child: Column(
           children: [
             const SizedBox(height: 50),
-            Center(
-              child: Text("ProfilePage."))],
-        )
-      )
-    );
+            Center(child: Text("ProfilePage."))
+          ],
+        )));
   }
 }
