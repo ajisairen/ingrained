@@ -12,8 +12,8 @@ class ProfilePageState extends State<ProfilePage> {
   static const textColor = Color(0xff124642);
   static const buttonSize = 32.0;
 
-  static const username = 'GoldGiratina';
-  static const avatar = 'assets/images/test.png';
+  static const username = 'farmer_sam_10';
+  static const avatar = 'assets/images/farmer.png';
   static const rating = '4.98';
   static const ownPage = true;
 
