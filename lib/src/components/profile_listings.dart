@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import '../pages/profile_page.dart';
-import 'dart:math';
 
 class ProfileListings extends StatelessWidget {
+  static const priceColor = Colors.white;
+  static const priceBkgColor = Color(0xff124642);
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double imgWidth = width * 0.3;
-    List<String> images = ['assets/images/carrots.jpg', 'assets/images/leeks.jpg', 'assets/images/potatoes.jpg'];
+
     List<Widget> listings = [];
-    Random random = Random();
     for (var i = 0; i < 15; i++) {
       listings.add(
         SizedBox(
           width: imgWidth,
+          height: imgWidth,
           child: InkWell(
             onTap: () {
               Navigator.push(
@@ -21,9 +23,23 @@ class ProfileListings extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => ProfilePage()),
               );
             },
-            child: Image.asset(
-              images[random.nextInt(images.length)],
-              fit: BoxFit.cover
+            child: Stack (
+              fit: StackFit.expand,
+              children: [
+                Image.asset(
+                  'assets/images/test.png',
+                  fit: BoxFit.cover
+                ),
+                Text(
+                  '\$0.01',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: priceColor,
+                    backgroundColor: priceBkgColor,
+                  )
+                )
+              ]
             )
           )
         )
