@@ -10,14 +10,7 @@ import 'add_post_page.dart';
 class ForumPage extends StatefulWidget {
   const ForumPage({super.key});
   @override
-  State<ForumPage> createState() => ForumPageState();
-}
-
-class ForumPageState extends State<ForumPage> {
-  final PostService postService = PostService();
-
-  @override
-  _ForumPageState createState() => _ForumPageState();
+  State<ForumPage> createState() => _ForumPageState();
 }
 
 class _ForumPageState extends State<ForumPage> {
@@ -68,20 +61,6 @@ class _ForumPageState extends State<ForumPage> {
             );
           },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Example of adding a new post
-          postService.addPost(Post(
-            title: "TEST POST239874298432U Post",
-            text: "This is a new post.",
-            imgUrl: Image.asset("assets/images/plant.jpg"),
-            date: DateTime.now(),
-            likes: 0,
-            removed: false,)
-          );
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
