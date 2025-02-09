@@ -9,13 +9,12 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(title: Text("Login!")),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            Center(
-              child: Text("LoginPage."))],
-        )
-      ),
+          child: Column(
+        children: [
+          const SizedBox(height: 50),
+          Center(child: Text("LoginPage."))
+        ],
+      )),
     );
   }
 }
