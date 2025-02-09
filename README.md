@@ -1,7 +1,7 @@
 # Ingrained
 An android community app for local growers. \
 \
-Download Link: [here]
+Download Link: [here](https://drive.google.com/file/d/1VJvMDOYRDg-nA4VouAbEUmugK5enBaLD/view?usp=sharing)
 
 ## Team Members
 - Corina Conklin - https://www.corinanc.site/
