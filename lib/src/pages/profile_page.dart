@@ -10,6 +10,8 @@ class ProfilePage extends StatefulWidget {
 
 class ProfilePageState extends State<ProfilePage> {
   static const textColor = Color(0xff124642);
+  static const btnColor = Color(0xff124642);
+  static const btnSelectedColor = Color(0xFF27988E);
   static const buttonSize = 32.0;
 
   static const username = 'GoldGiratina';
@@ -126,6 +128,7 @@ class ProfilePageState extends State<ProfilePage> {
                 IconButton(
                   icon: Icon(Icons.store),
                   iconSize: buttonSize,
+                  color: showListings ? btnSelectedColor : btnColor,
                   padding: EdgeInsets.only(left: padding, right: padding),
                   onPressed: () {
                     changeToListings();
@@ -134,6 +137,7 @@ class ProfilePageState extends State<ProfilePage> {
                 IconButton(
                   icon: Icon(Icons.forum),
                   iconSize: buttonSize,
+                  color: showListings ? btnColor : btnSelectedColor,
                   padding: EdgeInsets.only(left: padding, right: padding),
                   onPressed: () {
                     changeToPosts();
