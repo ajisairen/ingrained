@@ -1,10 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../components/post.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../services/post_service.dart';
+import 'package:ingrained/src/services/post_service.dart';
+import 'package:ingrained/src/components/forum_post.dart';
+import 'add_post_page.dart';
 
 class ForumPage extends StatefulWidget {
   const ForumPage({super.key});
+  @override
+  State<ForumPage> createState() => ForumPageState();
+}
+
+class ForumPageState extends State<ForumPage> {
+  final PostService postService = PostService();
 
   @override
   _ForumPageState createState() => _ForumPageState();
@@ -16,6 +26,15 @@ class _ForumPageState extends State<ForumPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddPostPage()),
+          );
+        },
+        child: const Icon(Icons.note),
+      ),
       backgroundColor: Colors.green[100],
       appBar: AppBar(title: Text("ForumPage")),
       body: SafeArea(

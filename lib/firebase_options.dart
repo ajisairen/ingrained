@@ -71,4 +71,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'ingrained.firebasestorage.app',
     iosBundleId: 'com.example.ingrained',
   );
+
 }
