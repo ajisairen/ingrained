@@ -10,11 +10,14 @@ environment:
   sdk: ^3.6.2
 
 dependencies:
+  cloud_firestore: ^5.6.3
   firebase_core: ^3.11.0
+  firebase_database: ^11.3.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  image_field: ^0.0.10
 
 dev_dependencies:
   flutter_test:
