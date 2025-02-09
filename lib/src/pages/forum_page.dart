@@ -1,13 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../components/post.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../services/post_service.dart';
+import 'package:ingrained/src/services/post_service.dart';
+import 'package:ingrained/src/components/forum_post.dart';
+import 'add_post_page.dart';
 
 class ForumPage extends StatefulWidget {
   const ForumPage({super.key});
-
   @override
-  _ForumPageState createState() => _ForumPageState();
+  State<ForumPage> createState() => _ForumPageState();
 }
 
 class _ForumPageState extends State<ForumPage> {
@@ -16,6 +19,15 @@ class _ForumPageState extends State<ForumPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddPostPage()),
+          );
+        },
+        child: const Icon(Icons.note),
+      ),
       backgroundColor: Colors.green[100],
       appBar: AppBar(title: Text("ForumPage")),
       body: SafeArea(
@@ -49,20 +61,6 @@ class _ForumPageState extends State<ForumPage> {
             );
           },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Example of adding a new post
-          postService.addPost(Post(
-            title: "TEST POST239874298432U Post",
-            text: "This is a new post.",
-            imgUrl: Image.asset("assets/images/plant.jpg"),
-            date: DateTime.now(),
-            likes: 0,
-            removed: false,)
-          );
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
