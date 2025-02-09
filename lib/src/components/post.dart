@@ -88,7 +88,7 @@ class PostWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Container(
+              SizedBox(
                 width: 100, // Fixed width for the thumbnail
                 height: 100, // Fixed height for the thumbnail
                 child: ClipRRect(

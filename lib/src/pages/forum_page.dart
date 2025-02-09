@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../components/post.dart';
-import '../pages/post_detail_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../services/post_service.dart';
 

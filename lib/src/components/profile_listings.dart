@@ -5,6 +5,8 @@ class ProfileListings extends StatelessWidget {
   static const priceColor = Colors.white;
   static const priceBkgColor = Color(0xff124642);
 
+  const ProfileListings({super.key});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
