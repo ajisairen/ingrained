@@ -3,10 +3,16 @@ import 'src/components/nav_bar.dart';
 import 'src/pages/forum_page.dart';
 import 'src/pages/profile_page.dart';
 import 'src/pages/buy_sell_page.dart';
-// import 'src/pages/marketplace_page.dart';
+import 'src/pages/marketplace_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "873430311197",
+    "project_id": "ingrained",
+    "storage_bucket": "ingrained.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873430311197:android:3000922cb7c0231f0101f4",
+        "android_client_info": {
+          "package_name": "com.example.ingrained"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp7IQ2P_Fq4bU-KZ2g-7vSHs11yOOD5fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
