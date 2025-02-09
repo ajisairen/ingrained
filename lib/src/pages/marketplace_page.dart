@@ -1,41 +1,56 @@
 import 'package:flutter/material.dart';
 import '../components/listing.dart';
+import "../services/listing_service.dart";
 
-class MarketPage extends StatelessWidget {
+class MarketPage extends StatefulWidget {
   const MarketPage({super.key});
 
   @override
+  _MarketPageState createState() => _MarketPageState();
+}
+
+class _MarketPageState extends State<MarketPage> {
+  late Future<List<Listing>> futureListings;
+  ListingService service = ListingService();
+  @override
+  void initState() {
+    super.initState();
+    futureListings = ListingService().fetchListings();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // This is just a sample listing bc idk how to incorporate a listing i made in app...
-    Listing sampleListing = Listing(
-      title: "Sample Item",
-      desc: "This is a description of the sample item.",
-      pic: "assets/images/plant.jpg",
-      price: 99.99,
-      date: DateTime.now(),
-      category: [Category.cacti, Category.succulents],
-      removed: false,
-    );
-
-    List<Listing> listings = List.generate(10, (index) => sampleListing);
-    List<Listing> visibleListings =
-        listings.where((listing) => !listing.removed).toList();
-
     return Scaffold(
       appBar: AppBar(title: Text("Marketplace")),
       backgroundColor: Colors.green[100],
       body: SafeArea(
-        child: GridView.builder(
-          padding: const EdgeInsets.all(2.0),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // Number of columns
-            crossAxisSpacing: 0.2,
-            mainAxisSpacing: 0.2,
-            mainAxisExtent: 350, // Height of each item
-          ),
-          itemCount: visibleListings.length,
-          itemBuilder: (context, index) {
-            return ListingWidget(listing: visibleListings[index]);
+        child: FutureBuilder<List<Listing>>(
+          future: futureListings,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return Center(child: Text('No listings available'));
+            } else {
+              List<Listing> visibleListings = snapshot.data!
+                  .where((listing) => !listing.removed)
+                  .toList();
+              return GridView.builder(
+                padding: const EdgeInsets.all(2.0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 0.2,
+                  mainAxisSpacing: 0.2,
+                  mainAxisExtent: 350,
+                ),
+                itemCount: visibleListings.length,
+                itemBuilder: (context, index) {
+                  return ListingWidget(listing: visibleListings[index]);
+                },
+              );
+            }
           },
         ),
       ),
