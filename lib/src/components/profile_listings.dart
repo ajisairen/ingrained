@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pages/profile_page.dart';
 
 class ProfileListings extends StatelessWidget {
   @override
@@ -11,9 +12,17 @@ class ProfileListings extends StatelessWidget {
       listings.add(
         SizedBox(
           width: imgWidth,
-          child: Image.asset(
-            'assets/images/test.png',
-            fit: BoxFit.cover
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
+            child: Image.asset(
+              'assets/images/test.png',
+              fit: BoxFit.cover
+            )
           )
         )
       );
