@@ -14,27 +14,6 @@ class MarketPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(child: Text("Marketplace")),
-              const SizedBox(height: 50),
-              Image.asset(
-                'assets/images/cactus.png',
-                width: 200,
-                height: 200,
-                fit: BoxFit.cover,
-              ),
-              const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: () {
-                  // Add your onPressed code here!
-                },
-                child: Text('Buy'),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  // Add your onPressed code here!
-                },
-                child: Text('Sell'),
-              ),
             ],
           ),
         )));

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'src/components/nav_bar.dart';
 import 'src/pages/forum_page.dart';
 import 'src/pages/profile_page.dart';
-import 'src/pages/marketplace_page.dart';
+import 'src/pages/buy_sell_page.dart';
+// import 'src/pages/marketplace_page.dart';
 
 void main() async {
   runApp(MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/marketplace': (context) => const MarketPage(),
+        '/buy_sell': (context) => const BuySellPage(),
         '/forum': (context) => const ForumPage(),
         '/profile': (context) => const ProfilePage(),
       },
