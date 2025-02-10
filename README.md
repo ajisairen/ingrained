@@ -8,6 +8,7 @@ Download Link: [here](https://drive.google.com/file/d/1VJvMDOYRDg-nA4VouAbEUmugK
 - Serena Xin - https://ajisairen.github.io/
 - Manan Chaturvedi - chatu035@umn.edu
 - Bradley Johnson - https://bradleyjhnsn.github.io/
+- Credit to Taesun Connors for the app logo!
 
 ## Inspiration
 We decided to make a mobile application to foster local communities that grow and take care of plants. Inspired by the local farmers' market scene in and around Minneapolis, we thought connecting people through a shared interest of plants would create a strong community that can build each other up and share experiences.
